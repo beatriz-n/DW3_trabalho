@@ -1,0 +1,14 @@
+### Teste para todas as salas
+GET http://localhost:40000/getAllSalas
+Accept: application/json
+
+### Teste para inserir uma nova sala
+POST http://localhost:40000/insertSalas
+Content-Type: application/json
+
+{
+    "descricao": "Sala A",
+    "localizacao": "Bloco A",
+    "capacidade": 30,
+    "removido": false
+}
