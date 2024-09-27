@@ -17,13 +17,13 @@ const insertSalas = async (salaREG) => {
 };
 
 const getSalasByID = async (id) => {
-  const result = await db.query("SELECT * FROM salasdeaula WHERE salasdeaulaid = $1 AND removido = false", [id]);
+  const result = await db.query("SELECT * FROM salasdeaula WHERE id = $1 AND removido = false", [id]);
   return result.rows[0];
 };
 
 const updateSalas = async (id, salaREG) => {
   const result = await db.query(
-    "UPDATE salasdeaula SET descricao = $1, localizacao = $2, capacidade = $3 WHERE salasdeaulaid = $4 AND removido = false RETURNING *",
+    "UPDATE salasdeaula SET descricao = $1, localizacao = $2, capacidade = $3 WHERE id = $4 AND removido = false RETURNING *",
     [salaREG.descricao, salaREG.localizacao, salaREG.capacidade, id]
   );
 
@@ -34,7 +34,7 @@ const updateSalas = async (id, salaREG) => {
 };
 
 const deleteSalas = async (id) => {
-  const result = await db.query("UPDATE salasdeaula SET removido = true WHERE salasdeaulaid = $1 RETURNING *", [id]);
+  const result = await db.query("UPDATE salasdeaula SET removido = true WHERE id = $1 RETURNING *", [id]);
 
   return {
     msg: result.rowCount > 0 ? "Sala removida com sucesso" : "Sala não encontrada",
