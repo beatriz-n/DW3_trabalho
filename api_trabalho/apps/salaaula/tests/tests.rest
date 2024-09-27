@@ -12,3 +12,21 @@ Content-Type: application/json
     "capacidade": 30,
     "removido": false
 }
+
+### Teste para buscar uma sala por ID
+GET http://localhost:40000/getSalaByID/1
+Accept: application/json
+
+### Teste para atualizar uma sala
+PUT http://localhost:40000/updateSalas/1
+Content-Type: application/json
+
+{
+    "descricao": "Sala A Atualizada",
+    "localizacao": "Bloco A",
+    "capacidade": 35
+}
+
+### Teste para remover uma sala
+DELETE http://localhost:40000/deleteSalas/1
+Accept: application/json
