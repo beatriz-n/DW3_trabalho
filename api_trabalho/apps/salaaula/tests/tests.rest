@@ -10,15 +10,15 @@ Content-Type: application/json
     "descricao": "Sala B",
     "localizacao": "Bloco B",
     "capacidade": 30,
-    "removido": true
+    "removido": false
 }
 
 ### Teste para buscar uma sala por ID
-GET http://localhost:40000/getSalasByID/2
+GET http://localhost:40000/getSalasByID/1
 Accept: application/json
 
 ### Teste para atualizar uma sala
-PUT http://localhost:40000/updateSalas/2
+PUT http://localhost:40000/updateSalas/1
 Content-Type: application/json
 
 {
@@ -28,5 +28,5 @@ Content-Type: application/json
 }
 
 ### Teste para remover uma sala
-DELETE http://localhost:40000/deleteSalas/2
+DELETE http://localhost:40000/deleteSalas/1
 Accept: application/json
